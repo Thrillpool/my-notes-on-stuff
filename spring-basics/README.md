@@ -2,6 +2,8 @@
 
 Spring is a lot of things, it's pretty ubiquitous in Java. It provides lots of nice mechanisms that have a genuine use. This repo concerns Spring itself rather than Spring Boot, Spring Boot is broadly speaker a layer that removes the large amount of boilerplate we will see Spring to entail. This configuration genuinely is quite tedious, and Spring Boot really is what people use, nonetheless it makes sense to learn Spring independently to have a full-fledged understanding of what it does as boot conceals a lot of it from you. Spring tries to do a great many things and its documentation is so so as a consequence of it having so much to say.
 
+## Where are the official docs?
+They're here https://docs.spring.io/spring-framework/reference/index.html (they are massive).
 
 ## What's a (Spring) Bean anyway
 

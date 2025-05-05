@@ -2,6 +2,9 @@
 
 Maven is a relatively barebones build tool compared to Gradle and SBT. Nonetheless, it is still nice, and if you like looking at XML you are especially in for a treat. Teasing a bit less, Maven is really great, its documentation is extremely well written and that you're constrained to xml means builds generally don't do anything crazy. Yours truly is actually a massive Apache fanboy.
 
+## Where are the official docs?
+They're here https://maven.apache.org/guides/index.html
+
 ## A refresher on XML
 
 The basics of Maven start with the world-famous pom.xml file, which defines your entire build process. Let’s take a look at a minimal example and go through it line by line. Understanding this structure is helpful because genuinely one file (the xml schema) does tell you everything you need to know about configuring maven.

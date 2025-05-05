@@ -4,9 +4,9 @@ In short it's a compile time annotation processor i.e. a form of metaprogramming
 
 More details can be found here https://projectlombok.org/contributing/lombok-execution-path.
 
-## What can I do with it?
+## Where are the official docs?
 
-That is concisely summarised here https://projectlombok.org/features/
+Everything you can do is concisely summarised here https://projectlombok.org/features/
 
 ## Why does it exist?
 

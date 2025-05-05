@@ -2,6 +2,9 @@
 
 In short Envoy is a heavily customisable proxy. The context in which I was initially made aware of it is when used as a sidecar to every service. That is to say, you never talk to services directly any more, instead all communication happens via a dedicated envoy instance for the service, there's a huge number of benefits to this, just as a for instance, you don't have to have you service understand tls, envoy can deal with the tls and forward the unencrypted traffic to your service.
 
+## Where are the official docs?
+They are e.g. here https://www.envoyproxy.io/docs/envoy/v1.34.0/, they are good, having gone through the little example I present here you're well equipped to make use of them.
+
 ## Why do I want to know about Envoy
 
 Well, istio uses it, really the majority of the complexity of istio is actually complexity of envoy (and istio just provides you mechanisms of configuring envoy). Working with envoy directly for a bit gives you one less layer to get confused by. In fact! The istio docs can be a bit underwhelming at times, and it's really just that they are rightfully delegating to envoy docs.
