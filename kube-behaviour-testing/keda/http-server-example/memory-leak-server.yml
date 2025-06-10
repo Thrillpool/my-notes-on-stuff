@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-mem-leak-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-mem-leak-server
+  template:
+    metadata:
+      labels:
+        app: node-mem-leak-server
+    spec:
+      containers:
+        - name: node-mem-leak-server
+          imagePullPolicy: Never
+          image: docker.io/library/node-mem-leak-server:latest
+          resources:
+            limits:
+              memory: 200Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-mem-leak-server-service
+spec:
+  selector:
+    app: node-mem-leak-server
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: node-mem-leak-server-memory-scaled-object
+spec:
+  maxReplicaCount: 10
+  minReplicaCount: 1
+  pollingInterval: 5
+  cooldownPeriod: 10
+  scaleTargetRef:
+    name: node-mem-leak-server
+  triggers:
+  - type: memory
+    metricType: Utilization
+    metadata:
+      value: "50"
+  advanced:
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curl-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: curl-client
+  template:
+    metadata:
+      labels:
+        app: curl-client
+    spec:
+      containers:
+        - name: curl-client
+          image: curlimages/curl:latest
+          command: ["/bin/sh"]
+          args: ["-c", "while true; do sleep 10; done"]
+  
