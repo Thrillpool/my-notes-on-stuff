@@ -1,0 +1,1 @@
+jmap -dump:live,file=live-dump.bin pid
