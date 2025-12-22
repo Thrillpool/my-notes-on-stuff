@@ -1,0 +1,10 @@
+{
+  "description": "Altering HTTP responses",
+  "manifest_version": 2,
+  "name": "mess-around",
+  "version": "1.0",
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
