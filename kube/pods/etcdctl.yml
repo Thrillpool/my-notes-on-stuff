@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: etcdctl
+spec:
+  hostNetwork: true
+  containers:
+  - name: etcdctl
+    image: registry.k8s.io/etcd:3.5.9-0
+    command:
+      - etcdctl
+      - "--endpoints=https://127.0.0.1:2379"
+      - "--cacert=/etc/etcd/pki/ca.crt"
+      - "--cert=/etc/etcd/pki/server.crt"
+      - "--key=/etc/etcd/pki/server.key"
+      - "get"
+      - "/"
+      - "--prefix"
+    volumeMounts:
+    - name: etcd-certs
+      mountPath: /etc/etcd/pki
+      readOnly: true
+  volumes:
+  - name: etcd-certs
+    hostPath:
+      path: /var/lib/minikube/certs/etcd

@@ -14,6 +14,8 @@ Run `minikube addons enable metrics-server` to enable kube metric server
 
 Run `kubectl apply -f keda.yml` to get keda into your cluster
 
+Note how we define custom resources etc.
+
 Run 
 
 ```bash
@@ -23,7 +25,7 @@ docker build -t node-mem-leak-server .
 
 to build the image (in the context of minikube).
 
-Run `kubectl apply -f memory-leak-server.yml` to make the memory leak server deployment, service, scaledobject and also make a curl pod deployment we'll use to interact with the server.
+Run `kubectl apply -f memory-leak-server.yml` to make the memory leak server deployment, service (lightly touch on what this is), scaledobject and also make a curl pod deployment we'll use to interact with the server.
 
 
 ## How do I use it now?
